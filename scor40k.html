@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warhammer Scoring Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .player {
+        display: inline-block;
+        margin: 0 20px;
+    }
+    .score-container {
+        margin-bottom: 20px;
+    }
+    .score-label {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .score {
+        width: 100px;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .turn-score {
+        width: 40px;
+        font-size: 18px;
+        margin: 5px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    .btn:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="player" id="player1">
+        <h2>Player 1</h2>
+        <input type="text" class="player-name" placeholder="Player 1's Name">
+        <div class="score-container">
+            <label class="score-label">CP (1-10)</label>
+            <input type="number" class="score cp" min="0" max="10" value="0">
+        </div>
+        <div class="score-container">
+            <label class="score-label">Primary (0-45)</label>
+            <input type="number" class="score primary" min="0" max="45" value="0">
+        </div>
+        <div class="score-container">
+            <label class="score-label">Other Missions (0-45)</label>
+            <input type="number" class="score other-missions" min="0" max="45" value="0">
+        </div>
+        <div class="turn-scores">
+            <h3>Turn Scores</h3>
+            <div class="turn-score-container">
+                <label>Turn 1</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 2</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 3</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 4</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 5</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+        </div>
+        <textarea class="score-text" placeholder="Add lines of scoring..."></textarea>
+    </div>
+    <div class="player" id="player2">
+        <h2>Player 2</h2>
+        <input type="text" class="player-name" placeholder="Player 2's Name">
+        <div class="score-container">
+            <label class="score-label">CP (1-10)</label>
+            <input type="number" class="score cp" min="0" max="10" value="0">
+        </div>
+        <div class="score-container">
+            <label class="score-label">Primary (0-45)</label>
+            <input type="number" class="score primary" min="0" max="45" value="0">
+        </div>
+        <div class="score-container">
+            <label class="score-label">Other Missions (0-45)</label>
+            <input type="number" class="score other-missions" min="0" max="45" value="0">
+        </div>
+        <div class="turn-scores">
+            <h3>Turn Scores</h3>
+            <div class="turn-score-container">
+                <label>Turn 1</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 2</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 3</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 4</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+            <div class="turn-score-container">
+                <label>Turn 5</label>
+                <input type="number" class="turn-score" min="0" max="45" value="0">
+            </div>
+        </div>
+        <textarea class="score-text" placeholder="Add lines of scoring..."></textarea>
+    </div>
+</div>
+
+<script>
+    // Function to increment the score of a player
+    function incrementScore(playerNumber, className) {
+        var scoreElement = document.querySelector('#player' + playerNumber + ' .' + className);
+        var currentScore = parseInt(scoreElement.value);
+        if (currentScore < parseInt(scoreElement.max)) {
+            scoreElement.value = currentScore + 1;
+        }
+    }
+
+    // Function to decrement the score of a player
+    function decrementScore(playerNumber, className) {
+        var scoreElement = document.querySelector('#player' + playerNumber + ' .' + className);
+        var currentScore = parseInt(scoreElement.value);
+        if (currentScore > parseInt(scoreElement.min)) {
+            scoreElement.value = currentScore - 1;
+        }
+    }
+</script>
+
+</body>
+</html>
